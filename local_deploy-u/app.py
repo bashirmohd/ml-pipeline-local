@@ -14,7 +14,7 @@ warnings.simplefilter(action='ignore')
 
 def main():
     st.set_page_config(layout = "wide")
-    page = st.sidebar.selectbox('Select page', ['Forecast Data','Forecast Plot'])
+    page = st.sidebar.selectbox('Select page', ['NetGraf Data','NetGraf ML Plot'])
     st.title('')
     
     df = pd.read_csv('datasets/throughput_metrics.csv', parse_dates=['Time'], index_col='Time')
@@ -85,11 +85,11 @@ def main():
         height=1500,
         )
     
-    if page == 'Forecast Data':
-        st.markdown("## Forecast Data")
+    if page == 'NetGraf Data':
+        st.markdown("## NetGraf Data")
         st.write(forecast_df) 
     else:
-        st.markdown("## Forecast Plot")
+        st.markdown("## NetGraf ML Plot")
         st.plotly_chart(fig) 
     
     
